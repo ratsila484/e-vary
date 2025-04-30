@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Limite qte {{Cedepot}} atteint</h2>
+<mat-dialog-content>
+    Pensez a changer de depôt
+    <div class="mb-3">
+        <label for="" class="form-label">Depôt</label>
+        <select class="form-select form-select-lg" [(ngModel)]="selectDepot" name="" id="">
+            @for (depot of listDepot; track $index) {
+            @if(depot != Cedepot){
+            <option [value]="depot" selected>{{depot}}</option>
+            }
+            }
+        </select>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-button color="primary" (click)="ok()">OK</button>
+    <button mat-button color="accent" mat-dialog-close="true" (click)="non()">Non</button>
+</mat-dialog-actions>

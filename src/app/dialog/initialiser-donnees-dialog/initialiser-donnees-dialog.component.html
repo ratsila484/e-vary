@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Initialiser les données</h2>
+<mat-dialog-content>
+    <div class="mb-3">
+        <label for="" class="form-label">Quantté nafarana (kg) : </label>
+        <input type="number" class="form-control" min="0" [(ngModel)]="nafarana" name="qte_nafarana" id=""
+            aria-describedby="helpId" placeholder="en kg..." />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Quantité GAMO (tana) (kg): </label>
+        <input type="number" class="form-control" min="0" [(ngModel)]="gamo" name="qte_gamo" id=""
+            aria-describedby="helpId" placeholder="en kg..." (input)="gamoChanged(gamo)" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Quantité Total Morarano (kg): </label>
+        <input type="number" class="form-control" min="0" [(ngModel)]="totalMorarano" name="qte_mrrn" id=""
+            aria-describedby="helpId" placeholder="en kg..." (input)="mrrnTotalChanged(totalMorarano)" />
+        @if(totalMorarano){
+        <div class="moraranoDiv">
+            <div class="mb-3">
+                <label for="" class="form-label">Quantité Morarano (kg): </label>
+                <input type="number" class="form-control" min="0" [(ngModel)]="morarano" name="qte_mrrn" id=""
+                    aria-describedby="helpId" placeholder="en kg..." (input)="mrrnChanged(morarano)" />
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Quantité Tamatave (kg): </label>
+                <input type="number" class="form-control" min="0" [(ngModel)]="tamatave" name="qte_mrrn" id=""
+                    aria-describedby="helpId" placeholder="en kg..." (input)="tmtvChanged(tamatave)" />
+            </div>
+        </div>
+        }
+    </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button (click)="dataReady()" mat-button color="primary">Ok</button>
+    <button mat-button color="warn" (click)="reset()">Reset</button>
+</mat-dialog-actions>

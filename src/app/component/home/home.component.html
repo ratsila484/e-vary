@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed mb-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Nafarana (kg)</td>
+                <td>GAMO (kg)</td>
+                <td>MORARANO (kg)</td>
+                <td>TAMATAVE (kg)</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{{nafarana}}</th>
+                <th>{{gamo}}</th>
+                <th>{{morarano}}</th>
+                <th>{{tamatave}}</th>
+            </tr>
+        </tbody>
+    </table>
+</nav>
+<div class="container-fluid">
+    @if(!isPesageCliked){
+    <div class="row">
+        <button class="col-6 button" mat-raised-button color="primary" (click)="pesageCliked()">
+            Pesage
+        </button>
+        <button class="col-6 button" mat-raised-button color="warn">
+            Show all
+        </button>
+    </div>
+    }
+    @if(isPesageCliked){
+    <app-pesage [qteNafarana]="nafarana" [qteGamo]="gamo" [qteMorarano]="morarano"
+        [qteTamatave]="tamatave"></app-pesage>
+    }
+</div>

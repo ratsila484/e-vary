@@ -1,0 +1,32 @@
+.saisie {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.liste-peser {
+    margin: 5px;
+    height: 50vh;
+    overflow-y: auto;
+
+}
+
+.depasse {
+    border: 1px solid red;
+    background-color: gold;
+}
+
+.gamo {
+    background-color: green;
+    color: white;
+}
+
+.morarano {
+    background-color: green;
+    color: white;
+}
+
+.tamatave {
+    background-color: green;
+    color: white;
+}
