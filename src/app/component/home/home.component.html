@@ -1,30 +1,31 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed mb-3">
-    <table class="table">
-        <thead>
-            <tr>
-                <td>Nafarana (kg)</td>
-                <td>GAMO (kg)</td>
-                <td>MORARANO (kg)</td>
-                <td>TAMATAVE (kg)</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>{{nafarana}}</th>
-                <th>{{gamo}}</th>
-                <th>{{morarano}}</th>
-                <th>{{tamatave}}</th>
-            </tr>
-        </tbody>
-    </table>
+<nav class="navbar">
+    <div class="row data">
+        <div class="col-3">
+            <span>Nafarana</span>
+            <span style="font-weight: bold;">{{nafarana.toFixed(2)}}</span>
+        </div>
+        <div class="col-3">
+            <span>Tana</span>
+            <span style="font-weight: bold;">{{gamo.toFixed(2)}}</span>
+        </div>
+        <div class="col-3">
+            <span>Morarano</span>
+            <span style="font-weight: bold;">{{morarano.toFixed(2)}}</span>
+        </div>
+        <div class="col-3">
+            <span>Tamatave</span>
+            <span style="font-weight: bold;">{{tamatave.toFixed(2)}}</span>
+        </div>
+    </div>
 </nav>
 <div class="container-fluid">
     @if(!isPesageCliked){
-    <div class="row">
+    <div class="row button-pple">
         <button class="col-6 button" mat-raised-button color="primary" (click)="pesageCliked()">
             Pesage
         </button>
-        <button class="col-6 button" mat-raised-button color="warn">
+        <button class="col-6 button" mat-raised-button color="warn" disabled
+        >
             Show all
         </button>
     </div>

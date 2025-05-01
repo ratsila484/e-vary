@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { LimiteComponent } from '../../dialog/limite/limite.component';
+import { UpdateComponent } from '../../dialog/update/update.component';
 
 @Component({
   selector: 'app-pesage',
@@ -56,6 +57,8 @@ export class PesageComponent implements OnInit {
       this.totalGamo = this.calculePoid("gamo");
       this.totalMrrn = this.calculePoid("morarano")
       this.totalTmtv = this.calculePoid("tamatave")
+
+
       console.log(this.totalTmtv);
       if (this.isDepasseGamo === false && this.totalGamo > this.qteGamo) {
         let dialogRef = this.dialog.open(LimiteComponent, {
@@ -103,6 +106,9 @@ export class PesageComponent implements OnInit {
         this.isTamatave = true;
       }
       //tamatave
+      if (this.totalGamo == this.qteGamo) this.isGamo = true;
+      if (this.totalMrrn == this.qteMorarano) this.isMorarano = true;
+      if (this.totalTmtv == this.qteTamatave) this.isTamatave = true;
       this.totalPese = this.totalGamo + this.totalMrrn + this.totalTmtv;
     }
 
@@ -176,6 +182,37 @@ export class PesageComponent implements OnInit {
       result = true;
     }
     return result
+  }
+
+  delete(idPoid) {
+    this.listePoids = this.listePoids.filter(element => element.id != idPoid)
+    this.totalGamo = this.calculePoid("gamo");
+    this.totalMrrn = this.calculePoid("morarano")
+    this.totalTmtv = this.calculePoid("tamatave")
+    this.totalPese = this.totalGamo + this.totalMrrn + this.totalTmtv
+  }
+
+  update(poidId) {
+    const dialogRef = this.dialog.open(UpdateComponent, {
+      data: {
+        id: poidId,
+        liste: this.listePoids
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        for (let i = 0; i < this.listePoids.length; i++) {
+          if (this.listePoids[i].id == poidId) {
+            this.listePoids[i].poid = result[0];
+            this.listePoids[i].depot = result[1];
+          }
+        }
+      }
+      this.totalGamo = this.calculePoid("gamo");
+      this.totalMrrn = this.calculePoid("morarano")
+      this.totalTmtv = this.calculePoid("tamatave")
+      this.totalPese = this.totalGamo + this.totalMrrn + this.totalTmtv
+    })
   }
 
 }

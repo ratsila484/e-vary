@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Modifier numero = {{oldPoid[0].id}}</h2>
+<mat-dialog-content>
+    <form class="d-flex">
+        <div class="col">
+            <div class="mb-3">
+                <label for="" class="form-label">Poids (kg)</label>
+                <input type="number" name="newPoid" id="" [(ngModel)]="newPoid" class="form-control" placeholder=""
+                    aria-describedby="helpId" />
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Depot</label>
+                <select class="form-select form-select-lg" [(ngModel)]="newDepot" name="newDepot" id="">
+                    <option value="gamo" selected>GAMO (Tana)</option>
+                    <option value="morarano">Morarano</option>
+                    <option value="tamatave">Tamatave</option>
+                </select>
+            </div>
+
+        </div>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-button color="primary" (click)="ok()">OK</button>
+    <button mat-button (click)="cancel()">Annuler</button>
+</mat-dialog-actions>

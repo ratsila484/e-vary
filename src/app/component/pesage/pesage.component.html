@@ -1,25 +1,27 @@
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Total pesé</th>
-            <th>Gamo</th>
-            <th>Morarano</th>
-            <th>Tamatave</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{totalPese}}</td>
-            <td [ngClass]="{gamo : isGamo}">{{totalGamo}}</td>
-            <td [ngClass]="{morarano : isMorarano}">{{totalMrrn}}</td>
-            <td [ngClass]="{tamatave : isTamatave}">{{totalTmtv}}</td>
-        </tr>
-    </tbody>
-</table>
+<hr>
+<div class="navbar">
+    <div class="row data">
+        <div class="col-3">
+            <span>TOTAL</span>
+            <span style="font-weight: bold;">{{totalPese.toFixed(2)}}</span>
+        </div>
+        <div class="col-3" [ngClass]="{gamo: isGamo}">
+            <span>Tana</span>
+            <span style="font-weight: bold;">{{totalGamo.toFixed(2)}}</span>
+        </div>
+        <div class="col-3" [ngClass]="{morarano : isMorarano}">
+            <span>Morarano</span>
+            <span style="font-weight: bold;">{{totalMrrn.toFixed(2)}}</span>
+        </div>
+        <div class="col-3" [ngClass]="{tamatave : isTamatave}">
+            <span>Tamatave</span>
+            <span style="font-weight: bold;">{{totalTmtv.toFixed(2)}}</span>
+        </div>
+    </div>
+</div>
 <div class="container-luid">
     <div class="row mb-3">
-        <span>Selectionner le depôt</span>
+        <span class="text-center">Selectionner le depôt</span>
         <select class="form-control" [(ngModel)]="depot">
             <option value="gamo">GAMO (Tana)</option>
             <option value="morarano">Morarano</option>
@@ -44,7 +46,7 @@
         <div class="table-responsive">
             <table class="table table-striped table-hover table-borderless table-primary align-middle">
                 <thead class="table-light fixed">
-                    <tr>
+                    <tr class="text-center">
                         <th>Nunero</th>
                         <th>Poid(kg)</th>
                         <th>Depôt</th>
@@ -53,10 +55,18 @@
                 <tbody class="table-group-divider">
                     @for (listPoid of listePoids; track $index) {
                     @if($index != 0){
-                    <tr>
+                    <tr class="ligne">
                         <td scope="row">{{listPoid.id}}</td>
-                        <td>{{listPoid.poid}}</td>
+                        <td>{{listPoid.poid.toFixed(2)}}</td>
                         <td>{{listPoid.depot}}</td>
+                        <td width="10px">
+                            <button mat-fab color="primary" class="button-fab" (click)="update(listPoid.id)">
+                                <i class="fas fa-pen-alt "></i>
+                            </button>
+                            <button mat-fab color="accent" class="button-fab" (click)="delete(listPoid.id)">
+                                <i class="fas fa-trash    "></i>
+                            </button>
+                        </td>
                     </tr>
                     }
                     }
