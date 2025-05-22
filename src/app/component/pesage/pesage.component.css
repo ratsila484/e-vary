@@ -37,6 +37,11 @@
     color: white;
     animation: 0.3s forwards done;
 }
+.morarano-reset{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    animation: 0.3s forwards done;
+}
 
 .tamatave {
     background-color: green;
@@ -93,4 +98,14 @@ hr {
     font-size: 10px;
     width: 20px;
     height: 20px;
+}
+
+.changeDepot{
+    position: absolute;
+    right: 10px;
+    top: 150px;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 3px 3px 3px #33333379;
+    border-radius: 50%;
 }

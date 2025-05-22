@@ -1,4 +1,7 @@
 <hr>
+<div class="changeDepot">
+    <button (click)="stockPoidChangeDepot()" mat-mini-fab style="background-color: rgba(255, 255, 0, 0.445);">⚠️</button>
+</div>
 <div class="navbar">
     <div class="row data">
         <div class="col-3">
@@ -9,7 +12,7 @@
             <span>Tana</span>
             <span style="font-weight: bold;">{{totalGamo.toFixed(2)}}</span>
         </div>
-        <div class="col-3" [ngClass]="{morarano : isMorarano}">
+        <div class="col-3" [ngClass]="{morarano : isMorarano}"><!--{morarano : isMorarano}-->
             <span>Morarano</span>
             <span style="font-weight: bold;">{{totalMrrn.toFixed(2)}}</span>
         </div>
@@ -36,7 +39,7 @@
         <div class="">
             <button mat-raised-button color="accent" (click)="regPoid()">OK</button>
             @if(done()){
-            <button mat-raised-button color="primary" style="background-color: green;">
+            <button mat-raised-button color="primary" style="background-color: green;" (click)="openDoneDialog()">
                 <i class="fa fa-check" aria-hidden="true" style="color:  #ffff;"></i>
             </button>
             }

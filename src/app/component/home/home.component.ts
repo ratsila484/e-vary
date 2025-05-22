@@ -45,6 +45,5 @@ export class HomeComponent implements OnInit {
     this.isPesageCliked = true;
     console.log(this.isPesageCliked)
   }
-
-
+  
 }

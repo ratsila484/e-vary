@@ -18,8 +18,26 @@
 
 
 
-.navbar{
+.navbar {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.last-page {
+    position: absolute;
+    left: 5px;
+    color: #333;
+    border: 1px solid red;
+    border-radius: 50%;
+    box-shadow: 3px 3px 3px #33333344;
+    width: 20px;
+}
+
+.last-page:hover {
+    color: gray;
+}
+
+.last-page i {
+    transition: 0.5s all;
 }
