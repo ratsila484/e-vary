@@ -91,23 +91,30 @@ export class InitialiserDonneesDialogComponent {
   }
 
   dataReady() {
-    if (
-      this.nafarana != 0 &&
-      this.gamo != 0 &&
-      this.totalMorarano != 0 && this.nafarana && this.gamo && this.totalMorarano
-    ) {
+    //if (
+     // this.nafarana != 0 &&
+     // this.gamo != 0 &&
+     // this.totalMorarano != 0 && this.nafarana && this.gamo && this.totalMorarano
+    //) {
       //envoyer les données vers ler pple
-      this.dataInit.push({
+      // this.dataInit.push({
+      //   nafarana: this.nafarana,
+      //   gamo: this.gamo,
+      //   morarano: this.morarano,
+      //   tamatave: this.tamatave
+      // })
+
+      this.dataInit = [{
         nafarana: this.nafarana,
         gamo: this.gamo,
         morarano: this.morarano,
         tamatave: this.tamatave
-      })
+      }];
       this.dialogRef.close(this.dataInit);
       // alert(this.nafarana + "\n" + this.gamo + "\n" + this.morarano)
-    } else {
-      console.log("Veuillez tous remplir svp !!")
-    }
+    //} else {
+      //console.log("Veuillez tous remplir svp !!")
+    //}
   }
 
 
